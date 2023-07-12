@@ -60,8 +60,8 @@
 		%>
 		<%="<tr>" %>
 		<%="<td>"+rs.getInt("BI_NUM")+"</td>" %>
-		<%="<td>"+rs.getString("BI_CONTEXT")+"</td>" %>
 		<%="<td>"+rs.getString("BI_TITLE")+"</td>" %>
+		<%="<td>"+rs.getString("BI_WRITER")+"</td>" %>
 		<%="<td>"+rs.getString("BI_CNT")+"</td>" %>
 		<%="<tr>" %>
 		<%
