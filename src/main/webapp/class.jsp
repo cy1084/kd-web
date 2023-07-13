@@ -18,6 +18,15 @@ Statement stmt=con.createStatement();
 String sql="SELECT * FROM CLASS_INFO";
 ResultSet rs=stmt.executeQuery(sql);
 %>
+<table border="1">
+<tr>
+<th>번호</th>
+<td><%=rs.getString("CI_NAME")%></td>
+<th>과목 이름</th>
+<th>과목 설명</th>
+</tr>
+
+</table>
 
 <%
 while(rs.next()){
