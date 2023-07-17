@@ -13,17 +13,7 @@
 </head>
 <body>
 	<jsp:include page="/include/header.jsp" />
-	<%
-	String ciName=request.getParameter("ciName");
-	if(ciName != null && ciName.isEmpty()){
-		String ciDesc=request.getParameter("ciDesc");
-		
-		Connection con=DBCon.getCon();
-		Statement stmt=con.createStatement();
-		String sql="INSERT INFO CLASS_INFO(CI_NAME, CI_DESC)";
-		sql += "VALUES('" + ciName + "','" + ciDesc + "')";
-	}
-	%>
+	
 	<table border="1">
 		<tr>
 			<th>번호</th>

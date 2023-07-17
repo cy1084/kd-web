@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/include/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 <title>게시판 상세 화면</title>
 </head>
 <body>
+<jsp:include page="/include/header.jsp"/>
 	<%
 	String biNum = request.getParameter("biNum");
 	// 클릭한 게시물의 pk 값이 넘어와야 함 
@@ -30,8 +32,8 @@
 	<%
 	return;
 	}
-	String biTitle = rs.getString("BI_TITLE");
-	out.print(biTitle);
+	//String biTitle = rs.getString("BI_TITLE");
+	//out.print(biTitle);
 	%>
 	<table border="1">
 		<tr>
@@ -55,7 +57,7 @@
 			<td><%=rs.getInt("BI_CNT")%></td>
 		</tr>
 		<tr>
-			<th colspan="2"><button>수정</button><button>삭제</button></th>
+			<th colspan="2"><button onclick="location.href='<%=root%>/board/board-update.jsp?biNum=<%=biNum%>'">수정</button><button>삭제</button></th>
 
 		</tr>
 	</table>

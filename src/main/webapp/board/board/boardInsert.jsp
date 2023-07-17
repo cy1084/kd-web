@@ -3,6 +3,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/include/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 	<jsp:include page="/include/header.jsp" />
 	<%
 	String biTitle = request.getParameter("biTitle");
-	if (biTitle != null && biTitle.isEmpty()) {
+	if (biTitle != null && !biTitle.isEmpty()) {
 		String biContent = request.getParameter("biContent");
 		String biWriter = request.getParameter("biWriter");
 

@@ -22,9 +22,9 @@
 	sql += " SET BI_TITLE=?";
 	sql += " BI_CONTENT=?";
 	sql += " BI_WRITER=?";
-	sql += " WHERE BI_NUM";
+	sql += " WHERE BI_NUM=?";
 	PreparedStatement pstmt=con.prepareStatement(sql);   //prepareStatement(sql) 이렇게 이미 sql문을 넣어줬기 때문에 또 선언할 필요 없음
-	pstmt.setString(1, biTitle);
+	pstmt.setString(1,biTitle);
 	pstmt.setString(2,biContent);
 	pstmt.setString(3,biWriter);
 	pstmt.setString(4,biNum);
@@ -38,10 +38,7 @@
 	<% 
 	}
 	%>
-	biNum : <%=biNum%><br>
-	biTitle : <%=biTitle%><br>
-	biContent : <%=biContent%><br>
-	biWriter : <%=biWriter%><br>
+	
 
 </body>
 </html>

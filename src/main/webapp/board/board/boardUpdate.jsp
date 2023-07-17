@@ -33,7 +33,7 @@
 	String biTitle = rs.getString("BI_TITLE");
 	out.print(biTitle);
 	%>
-	<form action="<%=root%>/board/board/boardUpdate-ok.jsp">
+	<form action="<%=root%>/board/board/boardUpdate-ok.jsp" method="POST">
 	<input type="hidden" name="biNum" value="<%=biNum %>">
 	<table border="1">
 		<tr>
@@ -61,7 +61,7 @@
 			<td><%=rs.getInt("BI_CNT")%></td>
 		</tr>
 		<tr>
-			<th colspan="2"><button onclick="location.href='<%=root%>/board/board/boardUpdate.jsp?biNum=<%=biNum%>>'">수정</button></th>
+			<th colspan="2"><button>수정</button></th>
 
 		</tr>
 	</table>
