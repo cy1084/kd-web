@@ -33,6 +33,7 @@
 		<tr>
 		<td><%=rs.getInt("MI_NUM")%></td>
 		<td><a href="<%=root%>/movie/movieView.jsp?miNum=<%=rs.getInt("MI_NUM")%>"><%=rs.getString("MI_TITLE")%></a></td>
+		<!-- pk인 miNum은 절대 중복될 수 없으므로 이것으로 단일 조회 가능! 무조건 1개 이하! -->
 		<td><%=rs.getString("MI_DESC")%></td>
 		<td><%=rs.getString("MI_GENRE")%></td>
 		<td><%=rs.getString("MI_CREDAT")%></td>

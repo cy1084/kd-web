@@ -1,15 +1,14 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.web.common.DBCon"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/include/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<%@ include file="/include/common.jsp"%>
 <title>Insert title here</title>
 </head>
 <body>
@@ -18,9 +17,7 @@
 	String miNum = request.getParameter("miNum");
 
 	Connection con = DBCon.getCon();
-	//Statement stmt = con.createStatement();
-	String sql = "SELECT MI_NUM, MI_TITLE, MI_DESC, MI_GENRE, DATE_FORMAT(MI_CREDAT, '%Y-%m-%d') MI_CREDAT, MI_CNT FROM MOVIE_INFO WHERE MI_NUM=?";
-	//sql += " WHERE MI_NUM=" + miNum;
+	String sql = "SELECT MI_NUM, MI_TITLE, MI_DESC, MI_GENRE, DATE_FORMAT(MI_CREDAT,'%Y-%m-%d') MI_CREDAT, MI_CNT FROM MOVIE_INFO WHERE MI_NUM=?";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1, miNum);
 	ResultSet rs = ps.executeQuery();
@@ -35,8 +32,7 @@
 	return;
 	}
 	%>
-
-	<form action="<%=root%>/movie/movieUpdate-ok.jsp" method="POST">
+	<form action="<%=root%>/movie2/movieUpdate2-ok.jsp">
 		<input type="hidden" name="miNum" value="<%=miNum%>">
 		<table border="1">
 			<tr>
@@ -45,11 +41,9 @@
 					value="<%=rs.getString("MI_TITLE")%>"></td>
 			</tr>
 			<tr>
-				<th>설명</th>
+				<th>내용</th>
 				<td><textarea id="miDesc" name="miDesc" style="resize: none"
-						cols="30" rows="15">
-				<%=rs.getString("MI_DESC")%> 
-			</textarea></td>
+						cols="30" rows="15"><%=rs.getString("MI_DESC")%></textarea></td>
 			</tr>
 			<tr>
 				<th>장르</th>
@@ -58,7 +52,8 @@
 						<option value="코미디">코미디</option>
 						<option value="S/F">S/F</option>
 						<option value="스릴러">스릴러</option>
-						<option value="드라마">드라마</option>
+						<option value="로맨스">로맨스</option>
+						<option value="액션">액션</option>
 				</select></td>
 			</tr>
 			<tr>
@@ -72,11 +67,11 @@
 					value="<%=rs.getString("MI_CNT")%>"></td>
 			</tr>
 			<tr>
-				<th colspan="6"><button>수정</button></th>
-
+				<th colspan="6"><button>수정</button>
 			</tr>
-		</table>
 
+
+		</table>
 	</form>
 
 </body>
